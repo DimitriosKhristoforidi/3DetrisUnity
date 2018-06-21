@@ -1,14 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MatrixScript {
 
     public static int length_of_playground = 4;
     public static int width_of_playground = 4;
-    public static int column = 27;
+    public static int column = 20;
 
-    public static Transform[,,] grid = new Transform[length_of_playground, width_of_playground, column];
+    public static Transform[,,] grid = new Transform[length_of_playground, column, width_of_playground];
 
     public static Vector3 RoundVector(Vector3 vector3)
     {
@@ -63,7 +61,7 @@ public class MatrixScript {
         {
             for (int z = 0; z < width_of_playground; ++z)
             {
-                if(grid[x,y,z] != null)
+                if(grid[x,y,z] == null)
                 {
                     return false;
                 }
