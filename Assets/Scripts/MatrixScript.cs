@@ -2,9 +2,9 @@
 
 public class MatrixScript {
 
-    public static int length_of_playground = 4;
-    public static int width_of_playground = 4;
-    public static int column = 20;
+    public static int length_of_playground = 8;
+    public static int width_of_playground = 8;
+    public static int column = 12;
 
     public static Transform[,,] grid = new Transform[length_of_playground, column, width_of_playground];
 
@@ -15,7 +15,7 @@ public class MatrixScript {
 
     public static bool isInsideBorders(Vector3 posistion)
     {
-        return ((int)posistion.x >= 0 && (int)posistion.x < length_of_playground && (int)posistion.z >= 0 && (int)posistion.z >= width_of_playground && (int)posistion.y >= 0);
+        return ((int)posistion.x >= 0 && (int)posistion.x < length_of_playground && (int)posistion.z >= 0 && (int)posistion.z < width_of_playground && (int)posistion.y >= 0);
     }
 
     public static void deleteRow (int y)

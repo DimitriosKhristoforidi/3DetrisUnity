@@ -6,7 +6,7 @@ public class TetrisObjectScript : MonoBehaviour {
 	
 	void FixedUpdate () {
 
-        if (Input.GetKey("s"))
+        if (Input.GetKeyDown("s"))
         {
             transform.position += new Vector3(-1, 0, 0);
             if (IsValidGridPosition())
@@ -19,20 +19,20 @@ public class TetrisObjectScript : MonoBehaviour {
             }
         }
 
-        else if (Input.GetKey("w"))
+        else if (Input.GetKeyDown("w"))
         {
-            transform.position += new Vector3(2, 0, 0);
+            transform.position += new Vector3(1, 0, 0);
             if (IsValidGridPosition())
             {
                 UpdateMatrixGrid();
             }
             else
             {
-                transform.position += new Vector3(-2, 0, 0);
+                transform.position += new Vector3(-1, 0, 0);
             }
         }
 
-        else if (Input.GetKey("a"))
+        else if (Input.GetKeyDown("a"))
         {
             transform.position += new Vector3(0, 0, 1);
             if (IsValidGridPosition())
@@ -45,7 +45,7 @@ public class TetrisObjectScript : MonoBehaviour {
             }
         }
 
-        else if (Input.GetKey("d"))
+        else if (Input.GetKeyDown("d"))
         {
             transform.position += new Vector3(0, 0, -1);
             if (IsValidGridPosition())
@@ -58,7 +58,7 @@ public class TetrisObjectScript : MonoBehaviour {
             }
         }
 
-        else if (Input.GetKey("q"))
+        else if (Input.GetKeyDown("q"))
         {
             transform.Rotate(new Vector3(0, 0, 90));
             if (IsValidGridPosition())
@@ -71,7 +71,7 @@ public class TetrisObjectScript : MonoBehaviour {
             }
         }
 
-        else if (Input.GetKey("e"))
+        else if (Input.GetKeyDown("e"))
         {
             transform.Rotate(new Vector3(0, 90, 0));
             if (IsValidGridPosition())
@@ -84,7 +84,7 @@ public class TetrisObjectScript : MonoBehaviour {
             }
         }
 
-        else if (Input.GetKey("space") || Time.time - lastFall >= 1)
+        else if (Input.GetKeyDown("space") || Time.time - lastFall >= 1)
         {
             transform.position += new Vector3(0, -1, 0);
             if (IsValidGridPosition())
