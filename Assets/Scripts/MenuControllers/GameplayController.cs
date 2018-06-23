@@ -27,7 +27,6 @@ public class GameplayController : MonoBehaviour {
     public void GameOver()
     {
         Time.timeScale = 0f;
-        FindObjectOfType<AudioController>().Mute();
         gameOverMenu.SetActive(true);
     }
 

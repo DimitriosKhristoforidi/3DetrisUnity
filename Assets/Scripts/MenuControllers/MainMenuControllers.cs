@@ -7,6 +7,7 @@ public class MainMenuControllers : MonoBehaviour {
     public void StartGame()
     {
         SceneManager.LoadScene(Name);
+        FindObjectOfType<AudioController>().Mute();
     }
 
     public void Quit()
