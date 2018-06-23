@@ -4,7 +4,7 @@ public class MatrixScript {
 
     public static int length_of_playground = 8;
     public static int width_of_playground = 8;
-    public static int column = 12;
+    public static int column = 15;
 
     public static Transform[,,] grid = new Transform[length_of_playground, column, width_of_playground];
 
@@ -13,12 +13,12 @@ public class MatrixScript {
         return new Vector3 (Mathf.Round(vector3.x), Mathf.Round(vector3.y), Mathf.Round(vector3.z));
     }
 
-    public static bool isInsideBorders(Vector3 posistion)
+    public static bool IsInsideBorders(Vector3 posistion)
     {
         return ((int)posistion.x >= 0 && (int)posistion.x < length_of_playground && (int)posistion.z >= 0 && (int)posistion.z < width_of_playground && (int)posistion.y >= 0);
     }
 
-    public static void deleteRow (int y)
+    public static void DeleteRow (int y)
     {
         for (int x = 0; x < length_of_playground; ++x)
         {
@@ -30,7 +30,7 @@ public class MatrixScript {
         }
     }
 
-    public static void decreaseRow(int y)
+    public static void DecreaseRow(int y)
     {
         for (int x = 0; x < length_of_playground; ++x)
         {
@@ -47,11 +47,11 @@ public class MatrixScript {
         }
     }
 
-    public static void decreaseRowsAbove(int y)
+    public static void DecreaseRowsAbove(int y)
     {
         for (int i=y; i < column; ++i)
         {
-            decreaseRow(i);
+            DecreaseRow(i);
         }
     }
 
@@ -70,17 +70,16 @@ public class MatrixScript {
         return true;
     }
 
-    public static void deleteWholeRows()
+    public static void DeleteWholeRows()
     {
         for(int y = 0; y < column; ++y)
         {
             if (IsRowFull(y))
             {
-                deleteRow(y);
-                decreaseRowsAbove(y + 1);
+                DeleteRow(y);
+                DecreaseRowsAbove(y + 1);
                 --y;
             }
         }
-
     }
 }

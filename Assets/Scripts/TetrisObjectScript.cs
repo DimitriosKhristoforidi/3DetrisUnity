@@ -1,10 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TetrisObjectScript : MonoBehaviour {
 
     float lastFall = 0f;
-	
-	void FixedUpdate () {
+
+    void Start()
+    {
+        if (!IsValidGridPosition())
+        {
+            FindObjectOfType<GameplayController>().GameOver();
+            Destroy(gameObject);
+        }
+    }
+
+    void FixedUpdate () {
 
         if (Input.GetKeyDown("s"))
         {
@@ -94,7 +104,7 @@ public class TetrisObjectScript : MonoBehaviour {
             else
             {
                 transform.position += new Vector3(0, 1, 0);
-                MatrixScript.deleteWholeRows();
+                MatrixScript.DeleteWholeRows();
                 FindObjectOfType<SpawnerScript>().SpawnRandomObject();
                 enabled = false;
             }
@@ -103,13 +113,13 @@ public class TetrisObjectScript : MonoBehaviour {
 
     }
 
-    bool IsValidGridPosition()
+    public bool IsValidGridPosition()
     {
         foreach (Transform child in transform)
         {
             Vector3 vector3 = MatrixScript.RoundVector(child.position);
 
-            if (!MatrixScript.isInsideBorders(vector3))
+            if (!MatrixScript.IsInsideBorders(vector3))
                 return false;
 
             if (MatrixScript.grid[(int)vector3.x, (int)vector3.y, (int)vector3.z] != null && MatrixScript.grid[(int)vector3.x, (int)vector3.y, (int)vector3.z].parent != transform)
