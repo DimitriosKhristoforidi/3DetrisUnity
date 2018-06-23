@@ -10,7 +10,6 @@ public class TetrisObjectScript : MonoBehaviour {
         if (!IsValidGridPosition())
         {
             FindObjectOfType<GameplayController>().GameOver();
-            // fkjwne kfwifnhufojquiehfn u93qiehfj qpijfp3qrhgjfpriejgmrpejgkj
             Destroy(gameObject);
         }
     }
