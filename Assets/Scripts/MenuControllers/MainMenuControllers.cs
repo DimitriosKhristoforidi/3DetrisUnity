@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MainMenuControllers : MonoBehaviour {
     private const string Name = "MainScene";
@@ -7,7 +8,7 @@ public class MainMenuControllers : MonoBehaviour {
     public void StartGame()
     {
         SceneManager.LoadScene(Name);
-        FindObjectOfType<AudioController>().Mute();
+        AudioListener.pause = false;
     }
 
     public void Quit()

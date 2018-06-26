@@ -4,7 +4,7 @@ public class MatrixScript {
 
     public static int length_of_playground = 8;
     public static int width_of_playground = 8;
-    public static int column = 1533;
+    public static int column = 15;
 
     public static Transform[,,] grid = new Transform[length_of_playground, column, width_of_playground];
 

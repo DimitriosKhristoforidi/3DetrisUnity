@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameplayController : MonoBehaviour {
@@ -7,6 +8,8 @@ public class GameplayController : MonoBehaviour {
     private GameObject pauseMenu;
     [SerializeField]
     private GameObject gameOverMenu;
+    [SerializeField]
+    private Button pauseButton;
 
     void Start () {
         pauseMenu.SetActive(false);
@@ -28,6 +31,8 @@ public class GameplayController : MonoBehaviour {
     {
         Time.timeScale = 0f;
         gameOverMenu.SetActive(true);
+        pauseButton.interactable = false;
+
     }
 
     public void QuitGame()
