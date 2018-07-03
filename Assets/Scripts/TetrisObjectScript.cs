@@ -1,9 +1,33 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class TetrisObjectScript : MonoBehaviour {
+public class TetrisObjectScript : MonoBehaviour
+{
+	[SerializeField]
+	public int LengthOfPlayground;
+	[SerializeField]
+	public int WidthOfPlayground;
+	[SerializeField]
+	public int Column;
+	[SerializeField]
+	public int StartPoint;
+	[SerializeField]
+	private string ForwardKey;
+	[SerializeField]
+	private string BackKey;
+	[SerializeField]
+	private string LeftKey;
+	[SerializeField]
+	private string RightKey;
+	[SerializeField]
+	private string XRotateKey;
+	[SerializeField]
+	private string YRotateKey;
+	[SerializeField]
+	private string ZRotateKey;
+	[SerializeField]
+	private string DownKey;
 
-    float lastFall = 0f;
+	float lastFall = 0f;
 
     void Start()
     {
@@ -16,7 +40,7 @@ public class TetrisObjectScript : MonoBehaviour {
 
     void FixedUpdate () {
 
-        if (Input.GetKeyDown("s"))
+		if (Input.GetKeyDown(BackKey))
         {
             transform.position += new Vector3(-1, 0, 0);
             if (IsValidGridPosition())
@@ -29,7 +53,7 @@ public class TetrisObjectScript : MonoBehaviour {
             }
         }
 
-        else if (Input.GetKeyDown("w"))
+		else if (Input.GetKeyDown(ForwardKey))
         {
             transform.position += new Vector3(1, 0, 0);
             if (IsValidGridPosition())
@@ -42,7 +66,7 @@ public class TetrisObjectScript : MonoBehaviour {
             }
         }
 
-        else if (Input.GetKeyDown("a"))
+		else if (Input.GetKeyDown(LeftKey))
         {
             transform.position += new Vector3(0, 0, 1);
             if (IsValidGridPosition())
@@ -55,7 +79,7 @@ public class TetrisObjectScript : MonoBehaviour {
             }
         }
 
-        else if (Input.GetKeyDown("d"))
+		else if (Input.GetKeyDown(RightKey))
         {
             transform.position += new Vector3(0, 0, -1);
             if (IsValidGridPosition())
@@ -68,7 +92,7 @@ public class TetrisObjectScript : MonoBehaviour {
             }
         }
 
-        else if (Input.GetKeyDown("q"))
+		else if (Input.GetKeyDown(ZRotateKey))
         {
             transform.Rotate(new Vector3(0, 0, 90));
             if (IsValidGridPosition())
@@ -81,7 +105,7 @@ public class TetrisObjectScript : MonoBehaviour {
             }
         }
 
-        else if (Input.GetKeyDown("e"))
+		else if (Input.GetKeyDown(YRotateKey))
         {
             transform.Rotate(new Vector3(0, 90, 0));
             if (IsValidGridPosition())
@@ -94,7 +118,20 @@ public class TetrisObjectScript : MonoBehaviour {
             }
         }
 
-        else if (Input.GetKeyDown("space") || Time.time - lastFall >= 1)
+		else if (Input.GetKeyDown(XRotateKey))
+        {
+            transform.Rotate(new Vector3(90, 0, 0));
+            if (IsValidGridPosition())
+            {
+                UpdateMatrixGrid();
+            }
+            else
+            {
+                transform.Rotate(new Vector3(-90, 0, 0));
+            }
+        }
+
+		else if (Input.GetKeyDown(DownKey) || Time.time - lastFall >= 1)
         {
             transform.position += new Vector3(0, -1, 0);
             if (IsValidGridPosition())
@@ -130,9 +167,9 @@ public class TetrisObjectScript : MonoBehaviour {
 
     void UpdateMatrixGrid()
     {
-        for (int x = 0; x < MatrixScript.length_of_playground; ++x)
+		for (int x = MatrixScript.start_point; x < MatrixScript.length_of_playground; ++x)
         {
-            for (int z = 0; z < MatrixScript.width_of_playground; ++z)
+            for (int z = MatrixScript.start_point; z < MatrixScript.width_of_playground; ++z)
             {
                 for (int y = 0; y < MatrixScript.column; ++y)
                 {
@@ -140,7 +177,7 @@ public class TetrisObjectScript : MonoBehaviour {
                     {
                         if (MatrixScript.grid[x, y, z].parent == transform)
                         {
-                            MatrixScript.grid[x, y, z] = null;
+							MatrixScript.grid[x, y, z] = null;
                         }
                     }
 

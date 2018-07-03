@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4889772926788598}
-  - component: {fileID: 114834415383322970}
+  - component: {fileID: 114464288209116976}
   m_Layer: 0
   m_Name: TetrisObjectCube
   m_TagString: Untagged
@@ -728,7 +728,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114834415383322970
+--- !u!114 &114464288209116976
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -739,3 +739,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f0fc39c0999b143ad525c18a5145bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LengthOfPlayground: 8
+  WidthOfPlayground: 8
+  Column: 15
+  StartPoint: 0
+  ForwardKey: w
+  BackKey: s
+  LeftKey: a
+  RightKey: d
+  XRotateKey: q
+  YRotateKey: e
+  ZRotateKey: r
+  DownKey: x

@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4889772926788598}
   - component: {fileID: 114834415383322970}
   m_Layer: 0
-  m_Name: TetrisObjectCube 1
+  m_Name: SecondTetrisObjectCube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -739,3 +739,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f0fc39c0999b143ad525c18a5145bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LengthOfPlayground: 18
+  WidthOfPlayground: 18
+  Column: 15
+  StartPoint: 10
+  ForwardKey: 8
+  BackKey: 5
+  LeftKey: 4
+  RightKey: 6
+  XRotateKey: 1
+  YRotateKey: 2
+  ZRotateKey: 3
+  DownKey: 0

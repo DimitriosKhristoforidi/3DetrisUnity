@@ -32,7 +32,7 @@ public class GameplayController : MonoBehaviour {
         Time.timeScale = 0f;
         gameOverMenu.SetActive(true);
         pauseButton.interactable = false;
-
+		AudioListener.pause = true;
     }
 
     public void QuitGame()

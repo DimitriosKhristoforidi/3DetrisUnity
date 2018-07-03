@@ -2,11 +2,15 @@
 
 public class MatrixScript {
 
-    public static int length_of_playground = 8;
-    public static int width_of_playground = 8;
-    public static int column = 15;
+	static TetrisObjectScript tetrisObjectScript = new TetrisObjectScript();
 
-    public static Transform[,,] grid = new Transform[length_of_playground, column, width_of_playground];
+
+	public static int length_of_playground = tetrisObjectScript.LengthOfPlayground;
+	public static int width_of_playground = tetrisObjectScript.WidthOfPlayground;
+	public static int column = tetrisObjectScript.Column;
+	public static int start_point = tetrisObjectScript.Column;
+
+	public static Transform[,,] grid = new Transform[length_of_playground, column, width_of_playground];
 
     public static Vector3 RoundVector(Vector3 vector3)
     {
@@ -15,14 +19,14 @@ public class MatrixScript {
 
     public static bool IsInsideBorders(Vector3 posistion)
     {
-        return ((int)posistion.x >= 0 && (int)posistion.x < length_of_playground && (int)posistion.z >= 0 && (int)posistion.z < width_of_playground && (int)posistion.y >= 0);
+        return ((int)posistion.x >= start_point && (int)posistion.x < length_of_playground && (int)posistion.z >= start_point && (int)posistion.z < width_of_playground && (int)posistion.y >= start_point);
     }
 
     public static void DeleteRow (int y)
     {
-        for (int x = 0; x < length_of_playground; ++x)
+        for (int x = start_point; x < length_of_playground; ++x)
         {
-            for (int z = 0; z < width_of_playground; ++z)
+            for (int z = start_point; z < width_of_playground; ++z)
             {
                 GameObject.Destroy(grid[x, y, z].gameObject);
                 grid[x, y, z] = null;
@@ -32,9 +36,9 @@ public class MatrixScript {
 
     public static void DecreaseRow(int y)
     {
-        for (int x = 0; x < length_of_playground; ++x)
+        for (int x = start_point; x < length_of_playground; ++x)
         {
-            for (int z = 0; z < width_of_playground; ++z)
+            for (int z = start_point; z < width_of_playground; ++z)
             {
                 if (grid[x,y,z] != null)
                 {
@@ -57,9 +61,9 @@ public class MatrixScript {
 
     public static bool IsRowFull(int y)
     {
-        for (int x = 0; x < length_of_playground; ++x)
+        for (int x = start_point; x < length_of_playground; ++x)
         {
-            for (int z = 0; z < width_of_playground; ++z)
+            for (int z = start_point; z < width_of_playground; ++z)
             {
                 if(grid[x,y,z] == null)
                 {
