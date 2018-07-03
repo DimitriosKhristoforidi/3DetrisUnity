@@ -2,13 +2,12 @@
 
 public class MatrixScript {
 
-	static TetrisObjectScript tetrisObjectScript = new TetrisObjectScript();
+	static TetrisObjectScript tetrisObject = new TetrisObjectScript();
 
-
-	public static int length_of_playground = tetrisObjectScript.LengthOfPlayground;
-	public static int width_of_playground = tetrisObjectScript.WidthOfPlayground;
-	public static int column = tetrisObjectScript.Column;
-	public static int start_point = tetrisObjectScript.Column;
+	public static int length_of_playground = tetrisObject.LengthOfPlayground;
+	public static int width_of_playground = tetrisObject.WidthOfPlayground;
+	public static int column = tetrisObject.Column;
+	public static int start_point = tetrisObject.StartPoint;
 
 	public static Transform[,,] grid = new Transform[length_of_playground, column, width_of_playground];
 
