@@ -15,6 +15,14 @@ public class GameplayController : MonoBehaviour {
         pauseMenu.SetActive(false);
         gameOverMenu.SetActive(false);
     }
+
+	void Update()
+	{
+		if (Input.GetKeyDown("escape"))
+			if (pauseMenu.activeSelf == false)
+				PauseGame();
+			else
+				ResumeGame();	}
 	
 	public void PauseGame() {
         Time.timeScale = 0f;

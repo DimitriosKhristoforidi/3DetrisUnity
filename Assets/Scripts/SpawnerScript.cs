@@ -4,6 +4,7 @@ public class SpawnerScript : MonoBehaviour {
 
     [SerializeField]
     private GameObject[] tetrisObjects;
+	public MatrixScript matrixScript = new MatrixScript();
 
     private void Start()
     {
@@ -13,6 +14,6 @@ public class SpawnerScript : MonoBehaviour {
     public void SpawnRandomObject()
     {
         int index = Random.Range(0, tetrisObjects.Length);
-        Instantiate (tetrisObjects[index], transform.position, Quaternion.identity);
+		Instantiate (tetrisObjects[index], transform.position, Quaternion.identity, gameObject.transform);
     }
 }

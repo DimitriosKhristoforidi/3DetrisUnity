@@ -3,14 +3,6 @@
 public class TetrisObjectScript : MonoBehaviour
 {
 	[SerializeField]
-	public int LengthOfPlayground;
-	[SerializeField]
-	public int WidthOfPlayground;
-	[SerializeField]
-	public int Column;
-	[SerializeField]
-	public int StartPoint;
-	[SerializeField]
 	private string ForwardKey;
 	[SerializeField]
 	private string BackKey;
@@ -33,7 +25,7 @@ public class TetrisObjectScript : MonoBehaviour
     {
         if (!IsValidGridPosition())
         {
-            //FindObjectOfType<GameplayController>().GameOver();
+            FindObjectOfType<GameplayController>().GameOver();
             Destroy(gameObject);
         }
     }
@@ -169,7 +161,7 @@ public class TetrisObjectScript : MonoBehaviour
     {
 		for (int x = MatrixScript.start_point; x < MatrixScript.length_of_playground; ++x)
         {
-            for (int z = MatrixScript.start_point; z < MatrixScript.width_of_playground; ++z)
+            for (int z = MatrixScript.start_point; z < MatrixScript.length_of_playground; ++z)
             {
                 for (int y = 0; y < MatrixScript.column; ++y)
                 {
